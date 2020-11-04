@@ -19,6 +19,8 @@ import { green, orange } from "@material-ui/core/colors";
 import "fontsource-roboto";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   root: {
@@ -100,6 +102,20 @@ function App() {
             </Typography>
 
             <ButtonStyled />
+
+            <Grid container spacing={2} justify="center">
+              {/* Can add spacing between gridd items, justify the contents aka centering horizontally*/}
+              <Grid item>
+                {/* Grid can either be a container or an item */}
+                <Paper style={{ height: 75, width: 50 }} />
+              </Grid>
+              <Grid item>
+                <Paper style={{ height: 75, width: 50 }} />
+              </Grid>
+              <Grid item>
+                <Paper style={{ height: 75, width: 50 }} />
+              </Grid>
+            </Grid>
             <TextField
               variant="filled"
               color="secondary"
