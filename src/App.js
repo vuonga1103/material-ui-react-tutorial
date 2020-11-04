@@ -10,7 +10,12 @@ import SaveIcon from "@material-ui/icons/Save";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Checkbox from "@material-ui/core/Checkbox";
 import { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  ThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core/styles";
+import { green, orange } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   root: {
@@ -20,6 +25,19 @@ const useStyles = makeStyles({
     marginBottom: 15,
     color: "white",
     pading: "0 30px",
+  },
+});
+
+const theme = createMuiTheme({
+  // defining palette for primary color
+  palette: {
+    primary: {
+      main: green[400],
+      // all color with value "primary" will be green[400]
+    },
+    secondary: {
+      main: orange[400],
+    },
   },
 });
 
@@ -54,30 +72,33 @@ function CheckboxExample() {
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ButtonStyled />
-        <TextField
-          variant="filled"
-          color="secondary"
-          type="email"
-          placeholder="test@test.com"
-        />
-        <CheckboxExample />
+    <ThemeProvider theme={theme}>
+      {/* Placing ThemeProvider here makes it accessible to all the components within; Requires us to pass in a theme, which we can customize*/}
+      <div className="App">
+        <header className="App-header">
+          <ButtonStyled />
+          <TextField
+            variant="filled"
+            color="secondary"
+            type="email"
+            placeholder="test@test.com"
+          />
+          <CheckboxExample />
 
-        {/* variant prop lets you specify how you want the button to look */}
-        <ButtonGroup variant="contained" color="secondary">
-          <Button startIcon={<SaveIcon />} href="#">
-            Save
-          </Button>
-          <Button startIcon={<DeleteIcon />} href="#">
-            Discard
-          </Button>
-        </ButtonGroup>
+          {/* variant prop lets you specify how you want the button to look */}
+          <ButtonGroup variant="contained" color="primary">
+            <Button startIcon={<SaveIcon />} href="#">
+              Save
+            </Button>
+            <Button startIcon={<DeleteIcon />} href="#">
+              Discard
+            </Button>
+          </ButtonGroup>
 
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
