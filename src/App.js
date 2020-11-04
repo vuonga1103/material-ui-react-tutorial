@@ -105,15 +105,18 @@ function App() {
 
             <Grid container spacing={2} justify="center">
               {/* Can add spacing between gridd items, justify the contents aka centering horizontally*/}
-              <Grid item>
-                {/* Grid can either be a container or an item */}
-                <Paper style={{ height: 75, width: 50 }} />
+              <Grid item xs={12} sm={6}>
+                {/* adding xs viewport to make this item mobile responsive, specifying that you want this grid to span 12 units, then setting the width to 100%; this will make this item stretch out on its own row in mobile */}
+                {/* at sm, it will be 6 units */}
+
+                {/* we can also simply pass in the viewport for ex xs so the layout can automatically dynamically update  */}
+                <Paper style={{ height: 75, width: "100%" }} />
               </Grid>
-              <Grid item>
-                <Paper style={{ height: 75, width: 50 }} />
+              <Grid item sm={3}>
+                <Paper style={{ height: 75, width: "100%" }} />
               </Grid>
-              <Grid item>
-                <Paper style={{ height: 75, width: 50 }} />
+              <Grid item sm={3}>
+                <Paper style={{ height: 75, width: "100%" }} />
               </Grid>
             </Grid>
             <TextField
