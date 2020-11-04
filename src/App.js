@@ -1,24 +1,22 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Button } from "@material-ui/core";
+import { Button, ButtonGroup } from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         {/* variant prop lets you specify how you want the button to look */}
-        <Button
-          startIcon={<SaveIcon />}
-          href="#"
-          variant="contained"
-          color="secondary"
-          size="small"
-          // disabled
-          // style={{ fontSize: 24 }}
-        >
-          Hello World
-        </Button>
+        <ButtonGroup variant="contained" color="secondary">
+          <Button startIcon={<SaveIcon />} href="#">
+            Save
+          </Button>
+          <Button startIcon={<DeleteIcon />} href="#">
+            Discard
+          </Button>
+        </ButtonGroup>
 
         <img src={logo} className="App-logo" alt="logo" />
       </header>
