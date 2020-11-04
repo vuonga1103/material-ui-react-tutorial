@@ -21,6 +21,10 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import AppBar from "@material-ui/core/AppBar";
+import ToolBar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles({
   root: {
@@ -90,6 +94,15 @@ function App() {
         {/*wrapping page in container, this adds some padding on L and R; maxWidth specifies that container will be able to be smaller but cannot be larger than sm width- can do md, lg, xs (xs is mobile size)*/}
         <div className="App">
           <header className="App-header">
+            <AppBar color="secondary">
+              <ToolBar>
+                <IconButton>
+                  <MenuIcon />
+                </IconButton>
+                <Typography variant="h6">MUI Themeing</Typography>
+                <Button>Log In</Button>
+              </ToolBar>
+            </AppBar>
             {/* Specifying component prop will make that specific component with an h2 styling */}
             <Typography variant="h2" component="div">
               Welcome to MUI
