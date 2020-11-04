@@ -18,6 +18,7 @@ import {
 import { green, orange } from "@material-ui/core/colors";
 import "fontsource-roboto";
 import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles({
   root: {
@@ -83,41 +84,44 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       {/* Placing ThemeProvider here makes it accessible to all the components within; Requires us to pass in a theme, which we can customize*/}
-      <div className="App">
-        <header className="App-header">
-          {/* Specifying component prop will make that specific component with an h2 styling */}
-          <Typography variant="h2" component="div">
-            Welcome to MUI
-          </Typography>
-          <Typography variant="subtitle1">
-            Learn how to use Material UI
-          </Typography>
-          <Typography variant="body1">
-            Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
-          </Typography>
+      <Container maxWidth="xs">
+        {/*wrapping page in container, this adds some padding on L and R; maxWidth specifies that container will be able to be smaller but cannot be larger than sm width- can do md, lg, xs (xs is mobile size)*/}
+        <div className="App">
+          <header className="App-header">
+            {/* Specifying component prop will make that specific component with an h2 styling */}
+            <Typography variant="h2" component="div">
+              Welcome to MUI
+            </Typography>
+            <Typography variant="subtitle1">
+              Learn how to use Material UI
+            </Typography>
+            <Typography variant="body1">
+              Blah blah blah. Blah blah blah. Blah blah blah. Blah blah blah.
+            </Typography>
 
-          <ButtonStyled />
-          <TextField
-            variant="filled"
-            color="secondary"
-            type="email"
-            placeholder="test@test.com"
-          />
-          <CheckboxExample />
+            <ButtonStyled />
+            <TextField
+              variant="filled"
+              color="secondary"
+              type="email"
+              placeholder="test@test.com"
+            />
+            <CheckboxExample />
 
-          {/* variant prop lets you specify how you want the button to look */}
-          <ButtonGroup variant="contained" color="primary">
-            <Button startIcon={<SaveIcon />} href="#">
-              Save
-            </Button>
-            <Button startIcon={<DeleteIcon />} href="#">
-              Discard
-            </Button>
-          </ButtonGroup>
+            {/* variant prop lets you specify how you want the button to look */}
+            <ButtonGroup variant="contained" color="primary">
+              <Button startIcon={<SaveIcon />} href="#">
+                Save
+              </Button>
+              <Button startIcon={<DeleteIcon />} href="#">
+                Discard
+              </Button>
+            </ButtonGroup>
 
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-      </div>
+            <img src={logo} className="App-logo" alt="logo" />
+          </header>
+        </div>
+      </Container>
     </ThemeProvider>
   );
 }
